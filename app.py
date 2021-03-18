@@ -1,5 +1,6 @@
 import logging
 from flask import Flask
+import os
 
 
 app = Flask(__name__)
@@ -8,7 +9,7 @@ app = Flask(__name__)
 @app.route('/')
 def hello():
     """Return a friendly HTTP greeting."""
-    return 'Hello World!'
+    return '{}'.format([os.environ.get('HELLO')])
 
 
 @app.errorhandler(500)
